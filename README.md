@@ -1,7 +1,7 @@
 # Weather-box-light2
 Taking data from pt100, dht22, SEN-14209 radiation sensor and sendig them through a client (utp) to a server 
 
-Client.14.5 is the new one using threading in order to be more time efficient as the figure one depicts (the functions have different time complecity)
+Client.14.5 is the new one using threading in order to be more time efficient as the figure one depicts (the functions have different time complexity)
 
 
 ### LIBRARIES to download for rpi
