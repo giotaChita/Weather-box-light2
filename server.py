@@ -45,8 +45,8 @@ while True:
     print("Key interruption. Program closing...")
     break
 
-    con.close()
-    cursor.close()
+con.close()
+cursor.close()
   
   
   
