@@ -24,50 +24,42 @@ def send(msg):
         client.send(pickle.dumps(msg))
 
 def send_radiation():
-    times = list()
     with RadiationWatch(24, 23) as radiationWatch:
-        start = timer()
-        for _ in range(101):
-            send(radiationWatch.status())
-            time.sleep(0.5)
-            times.append(timer()-start)
-        plt.plot(times,label = "radiation")
-        plt.xlabel("data_package")
-        plt.ylabel("time(s)")
-        plt.legend()
-        plt.show()
-
+        while 1:
+            radiation = radiationWatch.status()
+            radiation['date'] = datetime.now() 
+            send(radiation)
+            time.sleep(1)
+            
 def send_temp_dht22():
-    times = list()
-    start = timer()
-    for _ in range(101):
-        send(take_temp())
-        times.append(timer()-start)
-    plt.plot(times,label = "temp")
-    plt.legend()
-    plt.show()
-
+    while 1:
+        temperature = take_temp()
+        temperature['date'] = datetime.now()
+        send(temperature)
+        time.sleep(1)
+   
 def send_hum():
-    #while 1:
-    times = list()
-    start = timer()
-    for _ in range(101):
-        send(take_hum())
-        times.append(timer()-start)
-    plt.plot(times,label = "humidity")
-    plt.legend()
-    plt.show()
-
+    while 1:
+        humidity = take_hum()
+        humidity['date'] = datetime.now()
+        send(humidity)
+        time.sleep(1)
+    
 def send_temp_pt100():
-    #while 1:
-    times = list()
-    start = timer()
-    for _ in range(101):
-        send(temps())
-        times.append(timer()-start)
-    plt.plot(times,label = "pt100")
-    plt.legend()
-    plt.show()
+    while 1:
+        pt100_te = temps("East", 0)
+        pt100_te['date'] = datetime.now()
+        send(pt100_te)
+        pt100_ts = temps("South", 1)
+        pt100_ts['date'] = datetime.now()
+        send(pt100_ts)
+        pt100_tn = temps("North", 2)
+        pt100_tn['date'] = datetime.now()
+        send(pt100_tn)
+        pt100_tw = temps("West", 3)
+        pt100_tw['date'] = datetime.now()
+        send(pt100_tw)
+      
 
 rs = threading.Thread(target = send_radiation)
 hs = threading.Thread(target = send_hum)
