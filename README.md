@@ -41,7 +41,10 @@ run only on python3
     2. connect rpi with the wifi and power up the rpi 
     3. open terminal or the app to run the python script  
     4. if you open the terminal donwnload the above libryries (if you have not already installed in our case they are installed)
-    5a. run the programm from terminal  : cd Desktop -> python3 client.py
+    5a. run the programm from terminal  : cd Desktop
+    6a. if you need to stop it press ctr+C or exit() 
+    7a. you need to change the ip in the client script -> go to your computer command prompt -> ipconfig -> look at the ethernet ip -> open terminal where you where writing  -> and write: nano ~/client.py -> this command will open your script and change your ip-> write in the ip = (".....") -> press Crt + S to save the file and exit  Crt + X 
+    8a.now you are ready to run your program write in the pi's terminal : python3 client.py (the server should be running alrdeady on your laptop) 
     5b. run the programm through -> open menu application -> Thonny Python IDE: just open the programm it will be saved in desktop in order to be found easily 
     6. then the client will be ready to be connected with the server
     7. run the server from you laptop though pycharm or whatever you want
