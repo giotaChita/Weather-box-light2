@@ -42,7 +42,7 @@ run only on python3
     3. open terminal or the app to run the python script  
     4. if you open the terminal donwnload the above libryries (if you have not already installed in our case they are installed)
     5a. run the programm from terminal  : python3 client.py
-    5b. run the programm through ________ : just open the programm it will be saved in desktop in order to be found easily 
+    5b. run the programm through -> open menu application -> Thonny Python IDE: just open the programm it will be saved in desktop in order to be found easily 
     6. then the client will be ready to be connected with the server
     7. run the server from you laptop though pycharm or whatever you want
     8. the data should be sent successfully
