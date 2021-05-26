@@ -110,7 +110,7 @@ def temps(name, position):
             T4[z]=float("{:.2f}".format(T4[z]))
             temp.append(T4[z])
         z=z+1
-    dict = {"name": "{}_PT100[*C]".format(name), "value": temp[position]}
+    dict = {"name": "{}_PT100".format(name), "value": temp[position]}
     return dict
 
 def take_hum():
@@ -120,7 +120,7 @@ def take_hum():
 
 def take_temp():
         humidity, temperature =  Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-        dict1 = {"name": "Temperature[*C]", "value": float("{:.2f}".format(temperature))}
+        dict1 = {"name": "Temperature", "value": float("{:.2f}".format(temperature))}
         return dict1
     
 def millis():
@@ -142,7 +142,7 @@ class RadiationWatch:
             uSvhError -- the incertitude for the radiation dose."""
         minutes = min(self.duration, MAX_CPM_TIME) / 1000 / 60.0
         cpm = self.count / minutes if minutes > 0 else 0
-        dict1 = {"name": "Radiation[cpm]", "value": cpm}
+        dict1 = {"name": "Radiation", "value": cpm}
         return dict1
         
     def __enter__(self):
